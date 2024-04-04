@@ -1,0 +1,17 @@
+[package]
+name = "weather_cli"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[[bin]]
+name="weather"
+path="src/main.rs"
+
+[dependencies]
+serde = { version = "1.0", features = ["derive"] }
+reqwest = {version = "0.12.2", features = ["json"] }
+tokio = { version = "1.37.0", features = ["full"] }
+structopt = "0.2.15"
+dotenv = "0.15.0"
