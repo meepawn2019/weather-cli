@@ -54,7 +54,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
     let args = Cli::from_args();
     dotenv::dotenv().ok();
     let api_key = std::env::
-    var("API_KEY").expect("API_KEY must be set");
+    var("API_KEY").expect("API_KEY is missing");
     let city_url = format!("http://api.openweathermap.org/geo/1.0/direct?q={}&limit={}&appid={}", args.city, 1, api_key);
     let city_response = reqwest::get(&city_url).await?.json::<Vec<CityResponse>>().await?;
     let cities = city_response.iter().map(|city| City {
